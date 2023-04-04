@@ -1,0 +1,29 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+
+   int n, x, sp = 0, si = 0;
+
+   cin >> n;
+
+   for (int i = 1; i <= n; i++) {
+
+       cin >> x;
+
+       if (i % 2 == 0)
+
+           sp += x;
+
+       else
+
+           si += x;
+
+   }
+
+   cout << sp - si;
+
+   return 0;
+
+}
