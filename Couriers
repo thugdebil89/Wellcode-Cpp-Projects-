@@ -1,0 +1,50 @@
+#include <iostream>
+
+using namespace std;
+
+bool z[1001];
+
+int main(){
+
+int v[1001], n, i, j, zone=0;
+
+//Citire date
+
+cin >> n;
+
+for(i=1;i<=n;i++) cin >> v[i];
+
+
+
+for(i=1;i<=n;i++){
+
+ 
+ if(z[i]) continue;
+
+ 
+
+ z[i]=1;
+
+ zone++;
+
+
+
+ j=v[i];
+
+ while(z[j]==0){
+
+           z[j]=1;
+
+           j=v[j];
+
+ }
+
+}
+
+
+
+cout << zone;
+
+return 0;
+
+}
