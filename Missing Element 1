@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+   //Declarare date
+
+   unsigned n,i;
+
+   int p[1000];    //Pachete trimise
+
+   int s[1000];    //Pachete sosite
+
+   //Citire date
+
+   cin >> n;
+
+   for(i=0;i<n;i++) cin >> p[i];
+
+   for(i=0;i<n-1;i++)cin >> s[i];
+
+   //Determinare pachet lipsa
+
+   bool gasit=0;
+
+   for(i=0;i<n-1 && gasit==0;i++){
+
+       if(p[i]!=s[i]){
+
+           gasit=1;
+
+           cout << p[i];
+
+       }
+
+   }
+
+   if(!gasit)cout<<p[n-1];
+
+}
