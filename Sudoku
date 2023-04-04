@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+const int N = 9;
+
+bool check_row(int board[N][N], int row) {
+    bool used[N + 1] = {false};
+    for (int col = 0; col < N; col++) {
+        if (used[board[row][col]]) {
+            return false;
+        }
+        used[board[row][col]] = true;
+    }
+    return true;
+}
+
+bool check_col(int board[N][N], int col) {
+    bool used[N + 1] = {false};
+    for (int row = 0; row < N; row++) {
+        if (used[board[row][col]]) {
+            return false;
+        }
+        used[board[row][col]] = true;
+    }
+    return true;
+}
+
+bool check_block(int board[N][N], int startRow, int startCol) {
+    bool used[N + 1] = {false};
+    for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col++) {
+            if (used[board[row + startRow][col + startCol]]) {
+                return false;
+            }
+            used[board[row + startRow][col + startCol]] = true;
+        }
+    }
+    return true;
+}
+
+bool check_sudoku(int board[N][N]) {
+    for (int i = 0; i < N; i++) {
+        if (!check_row(board, i) || !check_col(board, i)) {
+            return false;
+        }
+    }
+    for (int row = 0; row < N; row += 3) {
+        for (int col = 0; col < N; col += 3) {
+            if (!check_block(board, row, col)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+int main() {
+    int board[N][N];
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            cin >> board[i][j];
+        }
+    }
+
+    if (check_sudoku(board)) {
+        cout << "corect" << endl;
+    } else {
+        cout << "incorect" << endl;
+    }
+
+    return 0;
+}
