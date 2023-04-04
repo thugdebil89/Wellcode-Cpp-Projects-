@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+int n,m,k,i,j, v[401][401];
+
+int main()
+
+{
+
+   cin >> n >> m >> k;
+
+   for (i=1; i<=n; ++i)
+
+       for (j=1; j<=m; ++j)
+
+          cin >> v[i][j];
+
+  for (j=k; j<=m; ++j)
+
+    for (i=1; i<=n; ++i)
+
+       v[i][j] = v[i][j+1];
+
+  --m;
+
+  for (i=1; i<=n; ++i)
+
+  {
+
+     for (j=1; j<=m; ++j)
+
+       cout << v[i][j] << " ";
+
+     cout << "\n";
+
+  }
+
+  return 0;
+
+}
+
