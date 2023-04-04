@@ -1,0 +1,36 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int a[n], b[n - 1];
+
+    // Citim cele două șiruri
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        cin >> b[i];
+    }
+
+    // Sortăm cele două șiruri
+    sort(a, a + n);
+    sort(b, b + n - 1);
+
+    // Parcurgem cele două șiruri și găsim elementul lipsă
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] != b[i]) {
+            cout << a[i] << endl;
+            return 0;
+        }
+    }
+
+    // Dacă nu găsim elementul lipsă până la sfârșitul celui de-al doilea șir, înseamnă că ultimul element din primul șir lipsește
+    cout << a[n - 1] << endl;
+
+    return 0;
+}
