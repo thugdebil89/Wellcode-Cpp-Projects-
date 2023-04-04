@@ -1,0 +1,27 @@
+#include <iostream>
+
+
+
+using namespace std;
+
+int main()
+
+{
+
+int n, p,k;
+
+cin>>n>>k>>p;
+
+for(int i=1; i<=k; i++)
+
+{
+
+cout<<((n-1)/p)*p<<" ";
+
+n=n-p;
+
+}
+
+return 0;
+
+}
