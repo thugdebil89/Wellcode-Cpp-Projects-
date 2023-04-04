@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 50;
+
+int main() {
+    int n, m[MAX][MAX], max_sum = -1000000;
+
+    // Citim dimensiunea matricei și elementele acesteia
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> m[i][j];
+        }
+    }
+
+    // Căutăm suma maximă pe diagonala principală și pe diagonala secundară
+    if (n == 1) {
+        // Caz special pentru matricea de dimensiune 1
+        max_sum = m[0][0];
+    } else {
+        for (int k = -n+1; k < n; k++) {
+            int sum1 = 0, sum2 = 0;
+            for (int i = 0; i < n; i++) {
+                int j = i + k;
+                if (j >= 0 && j < n) {
+                    sum1 += m[i][j];
+                }
+                j = n - 1 - i - k;
+                if (j >= 0 && j < n) {
+                    sum2 += m[i][j];
+                }
+            }
+            int sum = max(sum1, sum2);
+            if (sum > max_sum) {
+                max_sum = sum;
+            }
+        }
+    }
+
+    // Afisăm suma maximă
+    cout << max_sum << endl;
+
+    return 0;
+}
