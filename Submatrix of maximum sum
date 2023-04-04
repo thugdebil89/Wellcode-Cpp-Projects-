@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+int mt[3001][3001], sp[3001][3001];
+
+int main() {
+
+   int n, m;
+
+   cin >> n >> m;
+
+   for (int i = 1; i <= n; ++i) {
+
+       for (int j = 1; j <= m; ++j) {
+
+           cin >> mt[i][j];
+
+           sp[i][j] = mt[i][j] + sp[i - 1][j] + sp[i][j - 1] - sp[i - 1][j - 1];
+
+       }
+
+   }
+
+   int max = sp[1][1];
+
+   int x1, y1, x2, y2, sum = 0;
+
+   for (int x1 = 1; x1 <= n; x1++)
+
+       for (int y1 = 1; y1 <= m; y1++)
+
+           for (int x2 = x1; x2 <= n; x2++)
+
+               for (int y2 = y1; y2 <= m; y2++) {
+
+                   sum = sp[x2][y2] - sp[x1 - 1][y2] - sp[x2][y1 - 1] + sp[x1 - 1][y1 - 1];
+
+                   if (sum > max) {
+
+                       max = sum;
+
+                   }
+
+               }
+
+   cout << max;
+
+   return 0;
+
+}
