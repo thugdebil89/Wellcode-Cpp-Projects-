@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+unsigned v[1300000];
+
+int li=0,ls=0;
+
+void adauga(unsigned x){
+
+
+
+v[ls++]=x;
+
+}
+
+unsigned sterge(){
+
+
+if(li<ls) li++;
+
+return v[li-1];
+
+}
+
+unsigned numara(){
+
+
+return ls-li;
+
+}
+
+int main(){
+
+unsigned n,m,aux;
+
+
+cin >> n >> m;
+
+
+
+for(unsigned i=1;i<=n;i++){
+
+ cin >> aux;
+
+ adauga(aux);
+
+}
+
+
+for(unsigned i=1;i<=m;i++){
+
+
+
+ cin >> aux;
+
+
+
+ if(aux==1)sterge();
+
+ else{
+
+  cin >> aux;
+
+  adauga(aux);
+
+ }
+
+}
+
+
+cout << numara() << endl;
+
+while(numara()){
+
+       cout << sterge() << " ";
+
+}
+
+}
