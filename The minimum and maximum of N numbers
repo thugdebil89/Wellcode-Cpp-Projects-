@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int N,N1, maxx=-150,minn=150;
+    cin>>N;
+    while(N)
+    {
+        cin>>N1;
+        if(N1>maxx)
+            maxx=N1;
+        if(N1<minn)
+            minn=N1;
+        N--;
+    }
+    cout<<minn<<" "<<maxx;
+}
