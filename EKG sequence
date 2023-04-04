@@ -1,0 +1,75 @@
+#include <iostream>
+
+#include <unordered_set>
+
+using namespace std;
+
+//Calculeaza cmmdc dintre a si b
+
+int cmmdc(int a, int b) {
+
+while (b) {
+
+ a = a % b;
+
+ swap(a, b);
+
+}
+
+return a;
+
+}
+
+//Returneaza numarul de pe pozitia n din secventa EKG
+
+int ekg(int n) {
+
+//Cazuri speciale
+
+if (n == 1) return 1;
+
+if (n == 2) return 2;
+
+//Multime de numere deja parcurse
+
+unordered_set<int> parcurse;
+
+parcurse.insert(1);
+
+parcurse.insert(2);
+
+int ante, curent=2;
+
+int i;
+
+//Primele 2 numere sunt deja generate, incepem de la al treilea
+
+for (i = 3; i <= n; i++) {
+
+ ante = curent;
+
+ curent = 1;
+
+ //Cauta urmatoarul numar care nu apare in multime si are cmmdc cu numarul anterior diferit de 1
+
+ while (parcurse.find(curent) != parcurse.end() || cmmdc(ante, curent)==1) ++curent;
+
+ //Adauga numarul gasit in multimea de elemente deja gasite in secventa
+
+ parcurse.insert(curent);
+
+}
+
+return curent;
+
+}
+
+int main() {
+
+int n;
+
+cin >> n;
+
+cout << ekg(n);
+
+}
