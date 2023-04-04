@@ -1,0 +1,49 @@
+#include<iostream>
+
+using namespace std;
+
+int v[]={};
+
+int main()
+
+{
+
+int n,m,x,y,nr=1;
+
+cin>>n;
+
+cin>>y;
+
+for(int i=1;i<n;i++)
+
+{
+
+cin>>x;
+
+if(x!=y)
+
+v[y]=nr;
+
+y=x;
+
+nr++;
+
+}
+
+v[y]=nr;
+
+cin>>m;
+
+for(int i=0;i<m;i++)
+
+{
+
+cin>>x;
+
+cout<<v[x]<<" ";
+
+}
+
+return 0;
+
+}
