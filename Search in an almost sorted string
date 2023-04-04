@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 5e4;
+
+int n, a[N], k, num;
+
+unordered_map<int, bool> m;
+
+int main(){
+
+   cin >> n;
+
+   for(int i = 0; i < n; i++){
+
+       cin >> a[i];
+
+       m[a[i]] = 1;
+
+   }
+
+   cin >> k;
+
+   while(k--){
+
+       cin >> num;
+
+       cout << num << " nu se gaseste in sir\n" + m[num] * 3;
+
+   }
+
+}
