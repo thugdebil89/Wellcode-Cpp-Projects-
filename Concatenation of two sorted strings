@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int N, M, v[100000], w[100000], i, j, k = 0;
+    int vw[200000];
+    cin >> N;
+    for (i=0; i<N; i++)
+    cin >> v[i];
+    cin >> M;
+    for(i=0; i<M; i++)
+    cin >> w[i];
+        i=0; j=0;
+    //Interclasarea
+    while(i < N && j < M)
+    {
+    if(v[i] < w[j])
+    {
+    vw[k] = v[i];
+        k++;
+        i++;
+    }
+    else
+    {
+    vw[k] = w[j];
+        k++;
+        j++;
+    }
+    }
+    if(i <= N)
+    {
+    for(int p = i; p < N; p++)
+    {
+    vw[k] = v[p];
+        k++;
+    }
+    }
+    if(j <= M)
+    {
+    for(int p = j; p < M; p++)
+    {
+    vw[k] = w[p];
+        k++;
+    }
+    }
+    for(int p = 0; p < k; p++)
+        cout << vw[p] << " ";
+
+    return 0;
+}
+
+
+
