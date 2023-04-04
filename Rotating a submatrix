@@ -1,0 +1,93 @@
+#include <iostream>
+
+using namespace std;
+
+int mt[51][51], aux[51][51];
+
+
+
+void afisare_matrice(int mat[51][51], int n, int m) {
+
+   for (int linie = 0; linie < n; ++linie) {
+
+       for (int coloana = 0; coloana < m; ++coloana) {
+
+           cout << mat[linie][coloana] << " ";
+
+       }
+
+       cout << '\n';
+
+   }
+
+}
+
+int main() {
+
+   int n, m, i, j, l;
+
+   cin >> n >> m;
+
+   
+
+
+
+   for (int row = 0; row < n; ++row) {
+
+       for (int column = 0; column < m; ++column) {
+
+           cin >> mt[row][column];
+
+       }
+
+   }
+
+ 
+
+   cin >> i >> j >> l;
+
+   --i;
+
+   --j;
+
+ 
+
+   for (int linie = i; linie <= i + l; ++linie) {
+
+       for (int coloana = j; coloana <= j + l; ++coloana) {
+
+           aux[linie-i][coloana-j] = mt[linie][coloana];
+
+       }
+
+   }
+
+  
+
+   for (int linie = 0; linie < l; ++linie) {
+
+       for (int coloana = 0; coloana < linie; ++coloana) {
+
+           swap(aux[linie][coloana], aux[coloana][linie]);
+
+       }
+
+   }
+
+  
+
+   for (int coloana = 0; coloana < l; ++coloana) {
+
+       for (int linie = 0; linie < l; ++linie) {
+
+           mt[i + linie][j + coloana] = aux[l - linie-1][coloana];
+
+       }
+
+   }
+
+   afisare_matrice(mt, n, m);
+
+   return 0;
+
+}
