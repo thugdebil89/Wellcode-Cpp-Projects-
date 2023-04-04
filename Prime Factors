@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+   int n, d, putere;
+
+   cin >> n;
+
+   d = 2;
+
+   while ( d * d <= n ) {
+
+       putere = 0;
+
+       while ( n % d == 0 ) {
+
+           putere ++;
+
+           n /= d;
+
+       }
+
+       if ( putere > 0 )
+
+           cout << d << '^' << putere << '\n';
+
+       d ++;
+
+   }
+
+   if ( n > 1 )
+
+       cout << n << '^' << 1 << '\n';
+
+   return 0;
+
+}
