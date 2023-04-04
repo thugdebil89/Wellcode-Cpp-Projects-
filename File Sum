@@ -1,0 +1,10 @@
+ ifstream fin("donatii.in");
+
+  int N, n, sum = 0;
+  fin >> N;
+  while (N!=0){
+      fin>>n;
+      sum+=n;
+      N--;
+  }
+  cout <<sum ;
