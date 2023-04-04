@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int n,a,b,c,i;
+
+    cin >> n >> a >> b >> c;
+
+    i = 1;
+
+    while(n){
+
+    if (i%a && i%b && i%c){
+
+    n--;
+
+    cout << i << " ";
+
+ }
+
+    i++;
+
+}
+return 0;
+
+}
