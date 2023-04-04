@@ -1,0 +1,53 @@
+{
+
+int n;
+
+int v[101];
+
+//Citire vector
+
+cin >> n;
+
+for (int i = 1; i <= n; i++) cin >> v[i];
+
+for (int px = 1; px <= n; px++) {
+
+ //Daca e pozitie para
+
+ if (px % 2 == 0) {
+
+  //Cauta min dintre numerele mai mari din stanga
+
+  int mn = -1;
+
+  for (int py = 1; py < px; py++)
+
+   if (v[py] > v[px] && (v[py] < mn || mn == -1)) mn = v[py];
+
+  //Afiseaza solutie
+
+  cout << mn << " ";
+
+ }
+
+ //Daca e pozitie impara
+
+ else {
+
+  //Cauta min dintre numerele mai mari din dreapta
+
+  int mn = -1;
+
+  for (int py = px + 1; py <= n; py++)
+
+   if (v[py] > v[px] && (v[py] < mn || mn == -1)) mn = v[py];
+
+  //Afiseaza solutie
+
+  cout << mn << " ";
+
+ }
+
+}
+
+}
